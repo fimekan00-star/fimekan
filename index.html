@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Güvenlik sıkılaştırma: kaynakları kısıtla, enjeksiyon yüzeyini daralt -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; media-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://www.google.com; connect-src 'self'; form-action 'self'; upgrade-insecure-requests">
+<!-- Gizlilik: tam URL'yi üçüncü taraflara (Google Fonts/Maps) sızdırma -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#C6BEAF">
+<meta name="color-scheme" content="light">
+<meta property="og:title" content="Fimekan Yacht &amp; Home Interior — 1890'dan Bu Yana Zanaat">
+<meta property="og:description" content="Dört kuşaklık zanaat mirasıyla lüks yat iç mekânları: refit, duvar kaplama, koltuk imalatı.">
+<meta property="og:type" content="website">
+<title>Fimekan Yacht &amp; Home Interior — 1890'dan Bu Yana Zanaat</title>
+<meta name="description" content="Fimekan Yacht &amp; Home Interior. 1890'dan bu yana zanaat (by Döşemecioğulları), son 10 yıldır deniz üzerinde. Yat iç mekân tasarımı, refit, duvar kaplama, koltuk imalatı.">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ FIMEKAN — MID PREMIUM (WARM STONE · MARINE · BRASS) ========= */
+:root{
+  --paper:#C9C1B2;        /* mid warm greige base — ne beyaz ne koyu */
+  --paper-2:#BEB5A4;      /* deeper band/panel */
+  --paper-3:#EAE6DC;      /* cleaner card surface — pops on mid bg */
+  --ink:#1B262D;          /* deep marine text (crisper) */
+  --ink-soft:#3A464C;     /* secondary text */
+  --muted:#5D665F;        /* captions */
+  --brass:#7E5F24;        /* deeper gold, reads on mid stone */
+  --brass-2:#AA8B4E;      /* lighter gold (dark contexts / hover) */
+  --gold-hi:#C9A961;      /* champagne highlight */
+  --sea:#2C4750;          /* subtle accent tint */
+  --line:rgba(30,42,49,.20);
+  --line-soft:rgba(30,42,49,.11);
+  --footer:#141F27;       /* deep marine footer for contrast */
+  --shadow:0 26px 60px -24px rgba(20,32,39,.42);
+  --shadow-sm:0 12px 32px -16px rgba(20,32,39,.28);
+  --radius:16px;
+  --radius-lg:20px;
+  --ring:0 0 0 3px rgba(170,139,78,.55);
+  --maxw:1200px;
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Fraunces",Georgia,"Times New Roman",serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-offset,72px);-webkit-text-size-adjust:100%}
+:target{scroll-margin-top:var(--nav-offset,72px)}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;font-optical-sizing:auto;text-rendering:optimizeLegibility}
+p{text-wrap:pretty}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+em{font-style:italic;font-family:var(--disp);font-weight:400;color:var(--brass)}
+.wrap{width:min(var(--maxw),92vw);margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:.7rem;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--brass);font-weight:600;margin-bottom:1.1rem}
+.eyebrow::before{content:"";width:1.7rem;height:1px;background:currentColor;opacity:.55}
+h1,h2,h3{font-family:var(--disp);font-weight:400;line-height:1.08;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+.section{padding:clamp(4.5rem,9vw,8rem) 0;position:relative;z-index:2}
+
+/* premium polish: selection, keyboard focus, skip link */
+::selection{background:var(--brass);color:#fff}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,
+.pg-item:focus-visible{outline:none;box-shadow:var(--ring);border-radius:6px}
+.skip-link{position:absolute;left:14px;top:-60px;z-index:100;background:var(--footer);color:#fff;
+  padding:.7rem 1.1rem;border-radius:8px;font-size:.85rem;font-weight:600;transition:top .25s}
+.skip-link:focus{top:14px}
+.story-eye::before{display:none}
+
+/* fixed mid background + faint embossed logo watermark (stays, text scrolls) */
+.bg-grad{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(44,71,80,.12), transparent 60%),
+    linear-gradient(180deg,#CEC7B8 0%,#C6BEAF 55%,#BEB5A4 100%);}
+.bg-wm{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;align-items:center;justify-content:center}
+.bg-wm img{width:min(78vw,760px);opacity:.06;filter:grayscale(1);mix-blend-mode:multiply}
+
+/* ------------------------------- Header ---------------------------------- */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:40;transition:.35s ease}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;
+  width:min(var(--maxw),94vw);margin-inline:auto;padding:.9rem 0;transition:.35s}
+.hdr.scrolled{background:rgba(202,194,180,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+  box-shadow:0 8px 30px -16px rgba(20,32,39,.4)}
+.hdr.scrolled .hdr-in{padding:.6rem 0}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{width:auto;height:clamp(52px,5.4vw,66px);transition:.35s}
+.hdr.scrolled .brand img{height:clamp(46px,4.6vw,54px)}
+.wm{font-family:var(--disp);font-weight:600;letter-spacing:.01em;font-size:clamp(1.42rem,3.4vw,1.85rem);line-height:1;color:#fff;transition:.35s;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+.wm small{display:block;font-family:var(--sans);font-weight:500;font-size:clamp(.58rem,1.35vw,.7rem);
+  letter-spacing:.24em;color:var(--brass-2);margin-top:.4rem;transition:.35s}
+.hdr.scrolled .wm{color:var(--ink);text-shadow:none}
+.hdr.scrolled .wm small{color:var(--brass)}
+.nav{display:flex;align-items:center;gap:.35rem}
+.nav a{font-size:.82rem;font-weight:500;letter-spacing:.02em;color:rgba(255,255,255,.9);
+  padding:.55rem .8rem;border-radius:6px;transition:.25s;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+.nav a:hover{color:#fff}
+.hdr.scrolled .nav a{color:var(--ink-soft);text-shadow:none}
+.hdr.scrolled .nav a:hover{color:var(--ink)}
+.nav a.active{color:var(--brass-2)}
+.hdr.scrolled .nav a.active{color:var(--brass)}
+.nav a.cta{background:linear-gradient(180deg,#E6CB8C 0%,var(--gold-hi) 26%,var(--brass-2) 62%,var(--brass) 100%);color:#fff;font-weight:600;
+  padding:.58rem 1.4rem;margin-left:.4rem;border-radius:999px;border:1px solid rgba(201,169,97,.55);text-shadow:0 1px 1px rgba(74,54,16,.3);
+  box-shadow:0 12px 24px -12px rgba(126,95,36,.8),inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(74,54,16,.22);
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,filter .28s ease}
+.nav a.cta:hover{color:#fff;transform:translateY(-1px);filter:brightness(1.04);
+  box-shadow:0 16px 30px -12px rgba(126,95,36,.92),inset 0 1px 0 rgba(255,255,255,.6),inset 0 -1px 0 rgba(74,54,16,.24)}
+.burger{display:none;background:none;border:0;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.burger span{width:26px;height:2px;background:#fff;transition:.3s}
+.hdr.scrolled .burger span{background:var(--ink)}
+
+/* -------------------------------- Hero ----------------------------------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;text-align:left;overflow:hidden;z-index:3}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero-scrim{position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(180deg,rgba(6,13,18,.50) 0%,transparent 16%),
+    linear-gradient(90deg,rgba(6,13,18,.74) 0%,rgba(6,13,18,.58) 26%,rgba(6,13,18,.34) 48%,rgba(6,13,18,.10) 66%,transparent 80%),
+    linear-gradient(180deg,rgba(6,13,18,.12) 0%,transparent 38%,rgba(6,13,18,.42) 100%)}
+.hero-in{position:relative;z-index:2;width:min(var(--maxw),92vw);margin-inline:auto;padding:7rem 0 5rem}
+.hero-name{font-family:var(--disp);font-weight:400;letter-spacing:.04em;
+  font-size:clamp(2.6rem,7.4vw,5rem);line-height:1;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.55),0 2px 24px rgba(0,0,0,.6)}
+.hero-sub{display:block;font-family:var(--sans);font-weight:500;
+  font-size:clamp(.72rem,1.6vw,1rem);letter-spacing:.42em;text-transform:uppercase;
+  color:var(--brass-2);margin-top:1rem}
+.hero-kicker{margin-top:.4rem;margin-bottom:1.15rem;text-shadow:0 1px 3px rgba(0,0,0,.6),0 1px 14px rgba(0,0,0,.6)}
+.hero-headline{max-width:600px;font-size:clamp(2.2rem,5.4vw,3.6rem);letter-spacing:0}
+.lede{margin:2rem 0 0;max-width:560px;font-size:clamp(1rem,1.6vw,1.18rem);
+  color:#fff;font-weight:400;line-height:1.7;text-shadow:0 1px 2px rgba(0,0,0,.62),0 2px 18px rgba(6,13,18,.72)}
+.lede b{color:#fff;font-weight:600}
+.hero-actions{display:flex;gap:.9rem;justify-content:flex-start;flex-wrap:wrap;margin-top:2.2rem}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  font-weight:600;font-size:.92rem;padding:1rem 2.15rem;border-radius:999px;letter-spacing:.05em;overflow:hidden;isolation:isolate;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,background .35s ease,border-color .35s ease,color .35s ease}
+.btn svg{width:18px;height:18px;transition:transform .3s ease}
+.btn:focus-visible{outline:none;box-shadow:var(--ring),0 12px 26px -14px rgba(126,95,36,.6)}
+/* Primary — brushed brass with a light sweep on hover */
+.btn-gold{color:#fff;border:1px solid rgba(201,169,97,.6);text-shadow:0 1px 1px rgba(74,54,16,.4);
+  background:linear-gradient(180deg,#E8CD8E 0%,var(--gold-hi) 24%,var(--brass-2) 60%,var(--brass) 100%);
+  box-shadow:0 16px 34px -14px rgba(126,95,36,.85),0 3px 8px -3px rgba(126,95,36,.45),
+    inset 0 1px 0 rgba(255,255,255,.52),inset 0 -1px 0 rgba(74,54,16,.28)}
+.btn-gold::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;
+  background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.5) 50%,transparent 68%);
+  transform:translateX(-130%);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.btn-gold:hover{transform:translateY(-2px);
+  box-shadow:0 26px 48px -14px rgba(126,95,36,.95),0 5px 12px -3px rgba(126,95,36,.55),
+    inset 0 1px 0 rgba(255,255,255,.6),inset 0 -1px 0 rgba(74,54,16,.3)}
+.btn-gold:hover::before{transform:translateX(130%)}
+.btn-gold:hover svg{transform:translateX(3px)}
+/* Ghost — marine glass with a brass edge on hover */
+.btn-ghost{border:1px solid rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.07);backdrop-filter:blur(6px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-ghost:hover{border-color:var(--gold-hi);color:#fff;background:rgba(255,255,255,.15);transform:translateY(-2px);
+  box-shadow:0 18px 36px -20px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-ghost:hover svg{transform:translateX(3px)}
+.btn:active{transform:translateY(0)}
+.scrollcue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;color:rgba(255,255,255,.8);
+  font-size:.68rem;letter-spacing:.24em;text-transform:uppercase}
+.scrollcue .ln{width:1px;height:44px;background:linear-gradient(#fff,transparent);animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.5);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+/* --------------------------- Section heading ----------------------------- */
+.sec-head{max-width:760px;margin-bottom:3.2rem}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.15rem)}
+.sec-head p{color:var(--ink-soft);font-weight:300;margin-top:1rem;font-size:1.06rem;max-width:620px}
+.sec-head::after{content:"";display:block;width:64px;height:2px;margin-top:1.6rem;border-radius:2px;
+  background:linear-gradient(90deg,var(--brass),rgba(126,95,36,0))}
+
+/* --------------------------------- Miras --------------------------------- */
+#miras{background:linear-gradient(180deg,transparent,rgba(46,74,84,.05) 50%,transparent)}
+.miras-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.miras-copy h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:.4rem 0 1.2rem}
+.miras-copy p{color:var(--ink-soft);font-weight:300;margin-bottom:1.1rem;line-height:1.8}
+.hl{color:var(--ink);font-weight:600}
+.miras-frames{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.miras-frames .big{grid-column:1/3}
+.miras-frames figure{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line-soft);
+  background:var(--paper-3);box-shadow:var(--shadow-sm)}
+.miras-frames img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10;transition:.6s}
+.miras-frames .sm img{aspect-ratio:4/3}
+.miras-frames figure:hover img{transform:scale(1.05)}
+.miras-frames figcaption{position:absolute;left:14px;bottom:12px;font-size:.72rem;letter-spacing:.18em;
+  text-transform:uppercase;color:#fff;background:rgba(19,32,41,.6);padding:.35rem .7rem;border-radius:6px;backdrop-filter:blur(4px)}
+
+/* timeline */
+.story{margin-top:clamp(3.5rem,7vw,6rem)}
+.story-eye{display:block;text-align:center;margin-bottom:2.6rem}
+.story-list{list-style:none;position:relative;max-width:860px;margin-inline:auto}
+.story-list::before{content:"";position:absolute;left:108px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.story-item{display:grid;grid-template-columns:96px 1fr;gap:1.6rem;padding:1.1rem 0;position:relative}
+.story-year{font-family:var(--disp);font-size:1.5rem;color:var(--brass);text-align:right}
+.story-item::after{content:"";position:absolute;left:104px;top:1.55rem;width:9px;height:9px;border-radius:50%;
+  background:var(--brass);box-shadow:0 0 0 4px var(--paper)}
+.story-item.mark::after{background:var(--sea);box-shadow:0 0 0 4px var(--paper),0 0 0 6px rgba(154,123,54,.35)}
+.story-body h3{font-size:1.2rem;margin-bottom:.4rem;color:var(--ink)}
+.story-body p{color:var(--ink-soft);font-weight:300;font-size:.98rem}
+.story-close{text-align:center;max-width:680px;margin:2.6rem auto 0;color:var(--ink-soft);
+  font-style:italic;font-family:var(--disp);font-weight:300;font-size:1.12rem}
+
+/* -------------------- Tarihçe videosu (sade) ---------------------------- */
+.miras-video{margin:clamp(2.6rem,5vw,4rem) auto 0;max-width:900px;
+  border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);
+  background:#0d1519;box-shadow:var(--shadow)}
+.miras-video video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#0d1519}
+.miras-video figcaption{padding:.8rem 1.2rem;text-align:center;font-family:var(--disp);
+  font-style:italic;font-weight:300;color:var(--muted);font-size:.95rem;
+  background:var(--paper-3);border-top:1px solid var(--line-soft)}
+
+/* ---------------------------- Vizyon & Misyon ---------------------------- */
+.vm{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,2.2rem)}
+.vm-card{position:relative;overflow:hidden;border-radius:18px;min-height:440px;display:flex;align-items:flex-end;
+  border:1px solid var(--line-soft);box-shadow:var(--shadow)}
+.vm-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:.7s}
+.vm-card:hover img{transform:scale(1.06)}
+.vm-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(12,22,28,.1),rgba(12,22,28,.82))}
+.vm-body{position:relative;z-index:2;padding:2.2rem}
+.vm-body .k{display:inline-block;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--brass-2);font-weight:600;margin-bottom:.8rem}
+.vm-body h3{font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:.8rem;color:#fff}
+.vm-body h3 em{color:var(--brass-2)}
+.vm-body p{color:rgba(255,255,255,.9);font-weight:300;font-size:1rem}
+
+/* ---------------------------- Kültür Değerleri --------------------------- */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.value{position:relative;background:var(--paper-3);border:1px solid var(--line-soft);
+  border-radius:var(--radius);padding:1.55rem 1.5rem 1.65rem 1.75rem;box-shadow:var(--shadow-sm);overflow:hidden;
+  transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s ease}
+.value::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--brass-2),var(--brass))}
+.value:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.value h3{font-size:1.16rem;margin-bottom:.45rem;color:var(--ink)}
+.value p{color:var(--ink-soft);font-weight:300;font-size:.95rem;line-height:1.6}
+
+/* -------------------------------- Zanaat --------------------------------- */
+#zanaat{background:linear-gradient(180deg,transparent,rgba(46,74,84,.05),transparent)}
+.craft{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.craft-media{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.craft-media figure{overflow:hidden;border-radius:14px;border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.craft-media figure.a{grid-column:1/3}
+.craft-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:.6s}
+.craft-media figure.a img{aspect-ratio:16/9}
+.craft-media--stack{grid-template-columns:1fr;gap:1.1rem}
+.craft-media--stack figure{grid-column:1/-1}
+.craft-media--stack figure img{aspect-ratio:16/9;width:100%;object-fit:cover}
+.craft-media--stack figure.strip img{aspect-ratio:24/10;object-position:center 42%}
+/* detay galerisi — kapitone, lumboz, tavan, deri köşe yakın çekimleri */
+.craft-media--details{grid-template-columns:1fr 1fr;gap:.9rem}
+.craft-media--details figure{position:relative;margin:0;overflow:hidden;border-radius:14px;
+  border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.craft-media--details figure img{width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;transition:.6s}
+.craft-media--details figure.wide img{object-position:38% center}
+.craft-media--details figure:hover img{transform:scale(1.05)}
+.craft-media--details figcaption{position:absolute;left:12px;bottom:11px;z-index:2;font-size:.66rem;
+  letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(19,32,41,.62);
+  padding:.32rem .62rem;border-radius:6px;backdrop-filter:blur(4px);
+  opacity:0;transform:translateY(6px);transition:.3s}
+.craft-media--details figure:hover figcaption{opacity:1;transform:none}
+.craft-media figure:hover img{transform:scale(1.05)}
+.craft-copy h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:.4rem 0 1.1rem}
+.craft-copy>p{color:var(--ink-soft);font-weight:300;margin-bottom:1.6rem;line-height:1.8}
+.craft-list{list-style:none;display:grid;gap:1.1rem}
+.craft-list li{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.craft-list .n{font-family:var(--disp);color:var(--brass);font-size:1.1rem;min-width:1.6rem}
+.craft-list .t b{display:block;color:var(--ink);font-weight:600;margin-bottom:.15rem}
+.craft-list .t span{color:var(--muted);font-size:.94rem;font-weight:300}
+/* craft texture video */
+.kvideo{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,4rem);align-items:center;margin-top:clamp(3rem,6vw,5rem)}
+.kvideo-copy h2{font-size:clamp(1.7rem,3.6vw,2.4rem);margin:.4rem 0 1rem}
+.kvideo-copy p{color:var(--ink-soft);font-weight:300;line-height:1.8}
+.kvideo-frame{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#0d1519;box-shadow:var(--shadow)}
+.kvideo-frame video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;background:#0d1519}
+
+/* ------------------------------- Projeler -------------------------------- */
+.pg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pg-item{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--line-soft);
+  background:var(--paper-3);cursor:pointer;aspect-ratio:4/3;box-shadow:var(--shadow-sm)}
+.pg-item img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.pg-item:hover img{transform:scale(1.06)}
+.pg-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(12,22,28,.72));opacity:0;transition:.3s}
+.pg-item:hover::after{opacity:1}
+.pg-item:hover{border-color:rgba(126,95,36,.4)}
+.pg-cap{position:absolute;left:14px;bottom:12px;z-index:2;font-size:.82rem;font-weight:600;color:#fff;
+  opacity:0;transform:translateY(6px);transition:.3s}
+.pg-item:hover .pg-cap{opacity:1;transform:none}
+.pg-note{margin-top:1.6rem;color:var(--muted);font-size:.9rem;font-style:italic}
+
+/* ------------------------------ Referanslar ------------------------------ */
+#referanslar{background:linear-gradient(180deg,transparent,rgba(46,74,84,.06),transparent)}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.ref-cell{background:var(--paper-3);padding:2.4rem 1.6rem;text-align:center;transition:.3s}
+.ref-cell:hover{background:#fff;box-shadow:inset 0 3px 0 0 var(--brass-2)}
+.ref-cell:hover .rn{color:var(--brass)}
+.ref-cell .rn{font-family:var(--disp);font-size:clamp(1.2rem,2.6vw,1.7rem);color:var(--ink);font-weight:400}
+.ref-cell .rk{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin-top:.5rem}
+.ref-foot{margin-top:1.6rem;color:var(--muted);font-size:.9rem;font-style:italic}
+
+/* -------------------------------- İletişim ------------------------------- */
+.contact{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(2rem,5vw,4rem);align-items:stretch}
+.cinfo{display:grid;gap:.3rem;align-content:start}
+.cinfo a,.cinfo .row{display:flex;align-items:center;gap:1rem;padding:1.05rem 1rem;border-radius:12px;
+  border:1px solid transparent;transition:.25s}
+.cinfo a:hover{border-color:var(--line);background:var(--paper-3);box-shadow:var(--shadow-sm)}
+.cinfo .ic{width:24px;height:24px;flex:0 0 24px;color:var(--brass)}
+.cinfo .lbl{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
+.cinfo .val{color:var(--ink);font-weight:500}
+.cmap{border-radius:18px;overflow:hidden;border:1px solid var(--line);min-height:360px;position:relative;
+  background:var(--paper-2);box-shadow:var(--shadow)}
+.cmap iframe{width:100%;height:100%;min-height:360px;border:0;filter:grayscale(.15) contrast(1.02)}
+.cmap-btn{position:absolute;left:14px;bottom:14px;z-index:2}
+
+/* --------------------------------- Footer -------------------------------- */
+.foot{background:var(--footer);color:#D8DEDF;padding:3rem 0 2rem;position:relative;z-index:2}
+.foot-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.4rem;
+  padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot .brand img{width:40px}
+.foot .brand .wm{color:#fff}
+.foot-nav{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem}
+.foot-nav a{font-size:.85rem;color:rgba(255,255,255,.75)}
+.foot-nav a:hover{color:var(--brass-2)}
+.foot-soc{display:flex;gap:.6rem}
+.foot-soc a{width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);
+  border-radius:8px;color:rgba(255,255,255,.75);transition:.25s}
+.foot-soc a:hover{color:var(--brass-2);border-color:var(--brass)}
+.foot-soc svg{width:18px;height:18px}
+.foot-btm{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;padding-top:1.6rem;
+  color:rgba(255,255,255,.55);font-size:.82rem}
+.foot-btm .seal{color:var(--brass-2);font-family:var(--sans);font-weight:600;font-size:.98rem;letter-spacing:.04em}
+
+/* --------------- Fixed brass seal — bottom right, always visible --------- */
+.corner-seal{position:fixed;right:82px;bottom:34px;z-index:35;font-family:var(--sans);font-size:.92rem;font-weight:600;
+  letter-spacing:.03em;color:#fff;background:rgba(19,32,41,.82);border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;padding:.5rem 1.05rem;backdrop-filter:blur(6px);pointer-events:none;
+  box-shadow:0 8px 24px rgba(22,37,44,.25)}
+.corner-seal b{color:var(--brass-2);font-weight:700}
+
+/* -------------------------------- Lightbox ------------------------------- */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(12,18,22,.94);display:none;
+  flex-direction:column;align-items:center;justify-content:center;padding:2rem}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:78vh;border-radius:8px;object-fit:contain}
+.lb-close{position:absolute;top:20px;right:24px;font-size:2rem;color:#fff;background:none;border:0;cursor:pointer;line-height:1}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center}
+.lb-nav:hover{background:var(--brass);border-color:var(--brass)}
+.lb-prev{left:24px}.lb-next{right:24px}
+.lb-nav svg{width:24px;height:24px}
+.lb-count{margin-top:1rem;color:rgba(255,255,255,.6);font-size:.85rem;letter-spacing:.2em}
+
+/* ------------------------------- Reveal anim ----------------------------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* premium hover lift on media cards */
+.miras-frames figure,.craft-media figure,.pg-item{
+  transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s ease}
+.miras-frames figure:hover,.craft-media figure:hover,.pg-item:hover{
+  transform:translateY(-5px);box-shadow:var(--shadow)}
+.vm-card:hover{transform:translateY(-5px)}
+
+/* -------------------------------- Responsive ----------------------------- */
+@media(max-width:900px){
+  .nav{position:fixed;inset:64px 0 auto 0;flex-direction:column;background:rgba(202,194,180,.98);
+    backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:1rem 6vw 1.6rem;gap:.2rem;
+    transform:translateY(-140%);transition:.4s;align-items:stretch}
+  .nav.open{transform:none}
+  .nav a{padding:.9rem .4rem;border-bottom:1px solid var(--line-soft);color:var(--ink-soft)}
+  .nav a.cta{margin:.6rem 0 0;text-align:center;color:#fff}
+  .burger{display:flex}
+  .miras-grid,.vm,.craft,.kvideo,.contact{grid-template-columns:1fr}
+  .pg-grid,.ref-grid,.values-grid{grid-template-columns:repeat(2,1fr)}
+  .story-list::before{left:74px}
+  .story-item{grid-template-columns:66px 1fr;gap:1rem}
+  .story-year{font-size:1.2rem}
+  .story-item::after{left:70px}
+}
+@media(max-width:560px){
+  .pg-grid{grid-template-columns:1fr}
+  .ref-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .corner-seal{font-size:.74rem;padding:.4rem .7rem;right:70px;bottom:28px}
+  .foot-in{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .scrollcue .ln{animation:none}
+}
+
+/* ============================ SOR / CHAT WIDGET ========================== */
+.chat-fab{position:fixed;right:18px;bottom:22px;z-index:60;width:54px;height:54px;border:none;
+  cursor:pointer;border-radius:50%;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(145deg,#2C4750,#1B262D);
+  box-shadow:0 16px 34px -12px rgba(20,32,39,.62), inset 0 0 0 1px rgba(201,169,97,.45);
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.chat-fab:hover{transform:translateY(-3px) scale(1.05)}
+.chat-fab:focus-visible{outline:none;box-shadow:var(--ring),0 16px 34px -12px rgba(20,32,39,.62)}
+.chat-fab svg{width:30px;height:30px}
+.chat-fab .ic-close{display:none}
+.chat-fab.open .ic-boat{display:none}
+.chat-fab.open .ic-close{display:block}
+.chat-fab .fab-dot{position:absolute;top:-1px;right:-1px;width:15px;height:15px;border-radius:50%;
+  background:var(--gold-hi);border:2px solid var(--paper);
+  box-shadow:0 0 0 0 rgba(201,169,97,.55);animation:fabPulse 2.4s infinite}
+.chat-fab.open .fab-dot{display:none}
+.chat-fab .fab-tip{position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);
+  font-family:var(--disp);font-style:italic;font-size:.82rem;letter-spacing:.02em;line-height:1;
+  color:#fff;background:#1B262D;border:1px solid rgba(201,169,97,.55);padding:.2rem .55rem;
+  border-radius:999px;white-space:nowrap;pointer-events:none;box-shadow:0 6px 16px -8px rgba(20,32,39,.5)}
+.chat-fab.open .fab-tip{display:none}
+@keyframes fabPulse{0%{box-shadow:0 0 0 0 rgba(201,169,97,.5)}70%{box-shadow:0 0 0 9px rgba(201,169,97,0)}100%{box-shadow:0 0 0 0 rgba(201,169,97,0)}}
+
+.chat-panel{position:fixed;right:20px;bottom:96px;z-index:59;width:min(336px,calc(100vw - 30px));
+  height:min(468px,calc(100vh - 150px));background:var(--paper-3);border:1px solid var(--line);
+  border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);
+  opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;transform-origin:bottom right;
+  transition:opacity .28s ease,transform .28s cubic-bezier(.2,.8,.2,1)}
+.chat-panel.open{opacity:1;transform:none;pointer-events:auto}
+
+.chat-head{display:flex;align-items:center;gap:.7rem;padding:.95rem 1rem;color:#fff;
+  background:linear-gradient(120deg,#1B262D,#2C4750)}
+.chat-head .avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;flex:none;
+  background:rgba(201,169,97,.16);border:1px solid rgba(201,169,97,.5);color:var(--gold-hi)}
+.chat-head .avatar svg{width:22px;height:22px}
+.chat-head .avatar-logo{background:#F1ECE1;border-color:rgba(201,169,97,.7)}
+.chat-head .avatar-logo img{width:27px;height:27px;object-fit:contain;display:block}
+.chat-head h4{font-family:var(--disp);font-weight:500;font-size:1.02rem;line-height:1.1;margin:0;color:#fff}
+.chat-head p{font-size:.72rem;color:rgba(255,255,255,.72);margin:.12rem 0 0;letter-spacing:.02em}
+.chat-head .status{display:inline-block;width:7px;height:7px;border-radius:50%;background:#6bd08a;margin-right:.35rem;vertical-align:middle}
+.chat-x{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.82);cursor:pointer;
+  font-size:1.55rem;line-height:1;padding:0 .35rem;border-radius:8px}
+.chat-x:hover{color:#fff;background:rgba(255,255,255,.12)}
+
+.chat-body{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;
+  background:linear-gradient(180deg,var(--paper-3),var(--paper))}
+.chat-body::-webkit-scrollbar{width:8px}
+.chat-body::-webkit-scrollbar-thumb{background:rgba(30,42,49,.2);border-radius:8px}
+
+.msg{max-width:84%;padding:.62rem .85rem;border-radius:14px;font-size:.9rem;line-height:1.55;
+  animation:msgIn .3s ease both;word-wrap:break-word}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.msg.bot{align-self:flex-start;background:#fff;border:1px solid var(--line-soft);
+  border-bottom-left-radius:5px;color:var(--ink)}
+.msg.user{align-self:flex-end;color:#fff;border-bottom-right-radius:5px;
+  background:linear-gradient(135deg,var(--brass),#664c1d)}
+.msg a{color:var(--brass);font-weight:600;text-decoration:underline}
+.msg.user a{color:#fff}
+.msg b{font-weight:600}
+.msg .m-actions{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+.msg .m-actions a{display:inline-flex;align-items:center;gap:.28rem;font-size:.78rem;font-weight:600;
+  text-decoration:none;padding:.34rem .62rem;border-radius:999px;border:1px solid var(--brass);color:var(--brass)}
+.msg .m-actions a:hover{background:var(--brass);color:#fff}
+
+.chat-typing{align-self:flex-start;display:flex;gap:4px;padding:.72rem .9rem;background:#fff;
+  border:1px solid var(--line-soft);border-radius:14px;border-bottom-left-radius:5px}
+.chat-typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite}
+.chat-typing span:nth-child(2){animation-delay:.2s}.chat-typing span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,60%,100%{opacity:.25}30%{opacity:1}}
+
+.chat-chips{display:flex;flex-wrap:wrap;gap:.4rem;padding:.15rem 1rem .35rem}
+.chat-chips button{font-family:var(--sans);font-size:.78rem;font-weight:500;cursor:pointer;
+  background:rgba(255,255,255,.55);border:1px solid var(--line);color:var(--ink-soft);
+  padding:.44rem .82rem;border-radius:999px;
+  transition:transform .2s ease,border-color .2s ease,color .2s ease,background .2s ease,box-shadow .2s ease}
+.chat-chips button:hover{border-color:var(--brass);color:var(--brass);background:rgba(170,139,78,.1);
+  transform:translateY(-1px);box-shadow:0 6px 14px -8px rgba(126,95,36,.5)}
+.chat-chips button:active{transform:translateY(0)}
+
+.chat-input{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid var(--line);background:var(--paper-3)}
+.chat-input input{flex:1;font-family:var(--sans);font-size:.9rem;color:var(--ink);background:#fff;
+  border:1px solid var(--line);border-radius:999px;padding:.6rem .9rem;outline:none}
+.chat-input input:focus{border-color:var(--brass);box-shadow:0 0 0 3px rgba(170,139,78,.18)}
+.chat-input button{flex:none;width:42px;height:42px;border:none;border-radius:50%;cursor:pointer;
+  display:grid;place-items:center;color:#fff;background:linear-gradient(140deg,#33525C,#1B262D);
+  box-shadow:0 8px 18px -8px rgba(20,32,39,.6),inset 0 1px 0 rgba(255,255,255,.14);
+  transition:transform .2s ease,filter .2s ease,box-shadow .2s ease}
+.chat-input button:hover{filter:brightness(1.12);transform:translateY(-1px);
+  box-shadow:0 12px 22px -8px rgba(20,32,39,.65),inset 0 1px 0 rgba(255,255,255,.18)}
+.chat-input button:active{transform:translateY(0)}
+.chat-input button svg{width:20px;height:20px}
+
+@media(max-width:520px){
+  .chat-panel{right:12px;left:12px;width:auto;bottom:88px;height:min(64vh,452px)}
+  .chat-fab{right:16px;bottom:20px;width:52px;height:52px}
+  .chat-fab svg{width:27px;height:27px}
+}
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#home">İçeriğe geç</a>
+
+<!-- Fixed light background + faint embossed logo watermark -->
+<div class="bg-grad" aria-hidden="true"></div>
+<div class="bg-wm" aria-hidden="true"><img src="logo-mark.png" alt=""></div>
+
+<!-- Header -->
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a href="#home" class="brand" aria-label="Fimekan Yacht &amp; Home Interior">
+      <img src="logo-mark.png" alt="Fimekan logo">
+      <span class="wm">FİMEKAN<small>YACHT &amp; HOME INTERIOR</small></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#miras">Hakkımızda</a>
+      <a href="#zanaat">Hizmetlerimiz</a>
+      <a href="#projeler">Portfolyo</a>
+      <a href="#iletisim" class="cta">İletişim</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menü" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ================================ HERO ================================= -->
+<section class="hero" id="home">
+  <div class="hero-media">
+    <!-- Yat lounge — deniz manzaralı, işlenmemiş orijinal görsel -->
+    <img src="lounge.jpg" alt="Fimekan yat lounge — deniz manzaralı, ahşap ve krem tonlarında iç mekân" fetchpriority="high">
+  </div>
+  <div class="hero-scrim"></div>
+  <div class="hero-in">
+    <span class="hero-sub hero-kicker">Fimekan Yacht &amp; Home Interior</span>
+    <h1 class="hero-name hero-headline">4 Kuşaklık Zanaat, Denizlerin Ruhunda <em>Yeniden Hayat</em> Buluyor.</h1>
+    <p class="lede">1890'da fayton döşemeciliğiyle başlayan, nesilden nesile zanaatkârlık mirasımızla, bugün <b>Fimekan Yacht Interior</b> olarak lüks yatlara ruh katıyoruz. Geçmişten gelen kalite anlayışımızla, her detayı özenle işliyoruz.</p>
+    <div class="hero-actions">
+      <a href="#projeler" class="btn btn-gold">Projelerimizi Keşfedin
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#miras" class="btn btn-ghost">Hikâyemizi Okuyun</a>
+    </div>
+  </div>
+  <div class="scrollcue"><span>Keşfet</span><div class="ln"></div></div>
+</section>
+
+<!-- =============================== MİRAS ================================= -->
+<section class="section" id="miras">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Mirasımız &amp; Tarihçe</span>
+      <h2>1890'dan günümüze: dört kuşaklık zanaat, <em>zamansız işçilik</em></h2>
+    </div>
+
+    <div class="miras-grid">
+      <div class="miras-copy reveal">
+        <p>Fimekan'ın hikâyesi; deri, ahşap ve ustalığın tutkuyla harmanlandığı <span class="hl">asırlık bir zanaat mirasına</span> dayanır. <span class="hl">1890 yılında</span> fayton imalatı ve geleneksel deri döşeme ustalığıyla başlayan bu yolculuk, bugün lüks yat iç mekânları ve özel tasarım mobilyacılıkta mükemmelliğin simgesi hâline gelmiştir.</p>
+        <p>Her ahşabı, her dikişi ve her kaplamayı deniz şartlarına göre yeniden düşünüyor; Fimekan imzası taşıyan her yatın nesiller boyu hayranlık uyandırmasını amaçlıyoruz.</p>
+      </div>
+      <div class="miras-frames reveal">
+        <!-- Üstte fayton, altta kişilerin yer aldığı iki foto -->
+        <figure class="big"><img src="h1.jpg" alt="Fimekan tarihçe — fayton" loading="lazy" decoding="async">
+          <figcaption>Faytondan bugüne</figcaption></figure>
+        <figure class="sm"><img src="h4.jpg" alt="Fimekan ustaları" loading="lazy" decoding="async"></figure>
+        <figure class="sm"><img src="h2.jpg" alt="Fimekan atölyesi" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+
+    <div class="story reveal">
+      <span class="eyebrow story-eye">1890'dan günümüze</span>
+      <ol class="story-list">
+        <li class="story-item">
+          <div class="story-year">1890</div>
+          <div class="story-body">
+            <h3>Temellerin atılışı &amp; fayton işçiliği</h3>
+            <p>Geleneksel deri zanaatının ilk adımları; faytonların ince detaylarla süslendiği, el emeğinin en saf hâlinin icra edildiği atölyemizde atıldı. Malzemeyi tanıma, deriyi şekillendirme ve ömürlük dikiş teknikleri bu dönemde ailemizin genlerine işledi.</p>
+          </div>
+        </li>
+        <li class="story-item">
+          <div class="story-year">1952</div>
+          <div class="story-body">
+            <h3>Ustalığın devri &amp; atölye kültürü</h3>
+            <p>Faytonların yerini otomobillerin devralmasıyla birlikte zanaatımız yeni bir boyut kazandı. Geleneksel döşeme teknikleri hassasiyetle korunurken, el işçiliğinin disiplini ve malzeme kalitesine verilen önem markamızın değişmez omurgası hâline geldi.</p>
+          </div>
+        </li>
+        <li class="story-item">
+          <div class="story-year">2007</div>
+          <div class="story-body">
+            <h3>Yaşam alanlarına dokunuş &amp; modern dönüşüm</h3>
+            <p>Atölye mirasımız, konut iç mekânları ve özel tasarım mobilya üretimiyle genişledi. Geleneksel döşeme ustalıkları, modern mimari anlayışla birleştirilerek mekâna özel çözümler üretilmeye başlandı.</p>
+          </div>
+        </li>
+        <li class="story-item mark">
+          <div class="story-year">Bugün</div>
+          <div class="story-body">
+            <h3>Fimekan Yacht &amp; Home Interior</h3>
+            <p>Dört kuşağın birikimini günümüz teknolojisi ve estetiğiyle buluşturan Fimekan Yacht &amp; Home Interior, bugün lüks yatların iç mekân döşemelerinden kişiye özel deri duvar/tavan panellerine kadar mühendislik ve zanaatı aynı çatıda buluşturuyor.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="story-close">Her bir dikişimizde 1890'dan gelen usta el izini; her projemizde ise modern lüksün yenilikçi vizyonunu yaşatmaya devam ediyoruz.</p>
+    </div>
+
+    <!-- Tarihçe videosu -->
+    <figure class="miras-video reveal">
+      <video controls playsinline preload="metadata" poster="heritage-poster.jpg">
+        <source src="heritage.mp4" type="video/mp4">
+        Tarayıcınız video etiketini desteklemiyor.
+      </video>
+      <figcaption>1890'dan bugüne uzanan hikâyemiz — kısa bir film.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ========================= VİZYON & MİSYON ============================= -->
+<section class="section" id="vizyon">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Felsefemiz</span>
+      <h2>Vizyon &amp; Misyon — deniz üzerinde <em>zamansız</em> yaşam alanları</h2>
+      <p>Kusursuz el işçiliği ve kişiye özel lüksü, marine mühendisliğinin disipliniyle buluşturuyoruz.</p>
+    </div>
+    <div class="vm">
+      <article class="vm-card reveal">
+        <img src="bedroom.jpg" alt="Fimekan yat kamarası" loading="lazy" decoding="async">
+        <div class="vm-veil"></div>
+        <div class="vm-body">
+          <span class="k">Vizyonumuz</span>
+          <h3>Her detayda <em>kişiselleştirilmiş lüks</em></h3>
+          <p>Kusursuz el işçiliğini ve kişiselleştirilmiş lüksü her detayda yaşatarak, deniz üzerinde zamansız yaşam alanları inşa ediyoruz. Fimekan imzası taşıyan her yatın, nesiller boyu hayranlık uyandırmasını amaçlıyoruz.</p>
+        </div>
+      </article>
+      <article class="vm-card reveal">
+        <img src="cabin.jpg" alt="Fimekan yat iç mekân" loading="lazy" decoding="async">
+        <div class="vm-veil"></div>
+        <div class="vm-body">
+          <span class="k">Misyonumuz</span>
+          <h3>Zamanında, <em>kusursuz işçilikle</em></h3>
+          <p>Deniz şartlarının getirdiği zorlukları asırlık zanaat tecrübemiz ve marine mühendisliğiyle çözerek, her projeyi tam zamanında ve kusursuz işçilikle teslim ediyoruz. En üst segment malzemeleri kişiye özel çözümlerle buluşturuyoruz.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= KÜLTÜR DEĞERLERİ =========================== -->
+<section class="section" id="degerler">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Kültür Değerlerimiz</span>
+      <h2>Bizi biz yapan <em>ilkeler</em></h2>
+      <p>1890'dan bugüne taşıdığımız zanaat anlayışının arkasında, her işimize ve her ilişkimize yön veren değerler var.</p>
+    </div>
+    <div class="values-grid reveal">
+      <article class="value"><h3>İz Bırakmak</h3><p>Fark yaratmak, ardımızdan gelenlere yol göstermek.</p></article>
+      <article class="value"><h3>Yaşam Boyu Öğrenmek</h3><p>Kişisel gelişime ve kendini eğitmeye açık olmak, buna yatırım yapmak.</p></article>
+      <article class="value"><h3>Yenilikçi Düşünce Tarzı</h3><p>Yaratıcı ve yenilikçi olmak; amaca ulaşmak için yeni yollar bulmaya çalışmak.</p></article>
+      <article class="value"><h3>Söz Vermek</h3><p>Neye mal olursa olsun işi bitirmekte azimli olmak ve kendini adamak.</p></article>
+      <article class="value"><h3>Tutarlılık</h3><p>Beklenen, tahmin edilebilir bir tarzda davranacağımızın bilinmesi.</p></article>
+      <article class="value"><h3>Kalite</h3><p>İşleri, beklentileri karşılayan veya aşan şekilde tamamlamak.</p></article>
+      <article class="value"><h3>Çabukluk</h3><p>İş odaklı, amaçlı ve hızlı hareket etmek.</p></article>
+      <article class="value"><h3>Tanınma</h3><p>Bir iş iyi yapıldığında, hedeflere ulaşıldığında takdir edilmeye istekli olmak.</p></article>
+      <article class="value"><h3>Müşteri</h3><p>Müşteri memnuniyetinde mükemmele ulaşmak.</p></article>
+      <article class="value"><h3>Takım Çalışması</h3><p>Bir ekiple çalışmaktan ve bu ekibe katkı sunmaktan keyif almak.</p></article>
+      <article class="value"><h3>Girişimcilik</h3><p>İşi kendi işi gibi benimsemek ve sahiplenmek.</p></article>
+      <article class="value"><h3>Sorumluluk</h3><p>Sorumluluk almak; atılacak adımları ve sonuçları sahiplenmek.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== ZANAAT ================================ -->
+<section class="section" id="zanaat">
+  <div class="wrap">
+    <div class="craft">
+      <div class="craft-media craft-media--details reveal">
+        <figure><img src="detay-lumboz-kaplama.jpg" alt="Lumboz cam çevresi kaplama ve dikiş detayı" loading="lazy" decoding="async"><figcaption>Lumboz kaplaması</figcaption></figure>
+        <figure><img src="detay-koltuk-dikis.jpg" alt="Koltuk kapitone dikiş detayı" loading="lazy" decoding="async"><figcaption>Koltuk dikişi</figcaption></figure>
+        <figure><img src="detay-tavan-kaplama.jpg" alt="Tavan kaplama ve gömme spot detayı" loading="lazy" decoding="async"><figcaption>Tavan kaplaması</figcaption></figure>
+        <figure class="wide"><img src="detay-deri-kose.jpg" alt="Deri kaplama köşe ve kenar işçiliği detayı" loading="lazy" decoding="async"><figcaption>Deri köşe işçiliği</figcaption></figure>
+      </div>
+      <div class="craft-copy reveal">
+        <span class="eyebrow">Milimetrik Disiplin</span>
+        <h2>Gerçek lüks, en küçük <em>ayrıntıda</em> gizlidir</h2>
+        <p>Koltuk imalat ve yenileme sürecinde; yüksek mukavemetli marine iplikleri, hatasız el işçiliği ve milimetrik dikiş disipliniyle çalışıyoruz. Fimekan imzalı mobilyalarınız deniz şartlarında yıllarca ilk günkü formunu koruyor.</p>
+        <ul class="craft-list">
+          <li><span class="n">01</span><span class="t"><b>Marine malzeme</b><span>Tuz, nem ve UV'ye dayanıklı en üst segment kumaş, deri ve iplikler.</span></span></li>
+          <li><span class="n">02</span><span class="t"><b>Milimetrik dikiş</b><span>Hatasız el işçiliği ve disiplinli dikiş; tekli berjerde çift sıra dikiş gibi ince detaylarda kusursuz yüzeyler.</span></span></li>
+          <li><span class="n">03</span><span class="t"><b>Modüler kaplama</b><span>Türkiye'de yalnızca Fimekan'a ait duvar/fon kaplama uygulaması.</span></span></li>
+          <li><span class="n">04</span><span class="t"><b>Uçtan uca teslim</b><span>Malzemeden imalata, nakliyeden montaja tek elden özen.</span></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="kvideo reveal">
+      <div class="kvideo-copy">
+        <span class="eyebrow">Uygulamada</span>
+        <h2>Kaplamanın <em>dokusunu</em> yakından görün</h2>
+        <p>Malzemenin ışıkla nasıl değiştiğini, dikiş ve yüzey detayını en iyi hareketli görüntü anlatır. Kısa bir bakış:</p>
+      </div>
+      <div class="kvideo-frame">
+        <video controls playsinline preload="metadata" poster="video-poster.jpg">
+          <source src="kartela.mp4" type="video/mp4">
+          Tarayıcınız video etiketini desteklemiyor.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PROJELER =============================== -->
+<section class="section" id="projeler">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Denizdeki İmzalarımız</span>
+      <h2>Seçili <em>projeler</em></h2>
+      <p>Duvar kaplamasından koltuk takımına, refitten dikiş detaylarına kadar tamamladığımız işlerden bir seçki.</p>
+    </div>
+    <div class="pg-grid reveal" id="pg">
+      <div class="pg-item" data-images="montecarlo-yacht-cam-onu-kaplama-cover.jpg,montecarlo-yacht-cam-onu-kaplama-g01.jpg,montecarlo-yacht-cam-onu-kaplama-g02.jpg,montecarlo-yacht-cam-onu-kaplama-g03.jpg,montecarlo-yacht-cam-onu-kaplama-g04.jpg,montecarlo-yacht-cam-onu-kaplama-g05.jpg,montecarlo-yacht-cam-onu-kaplama-g06.jpg"><img src="montecarlo-yacht-cam-onu-kaplama-cover.jpg" alt="Monte Carlo — cam önü kaplama" loading="lazy"><span class="pg-cap">Monte Carlo · Cam Önü Kaplama</span></div>
+      <div class="pg-item" data-images="mazu-yacht-cover.jpg,mazu-yacht-g01.jpg,mazu-yacht-g02.jpg,mazu-yacht-g03.jpg,mazu-yacht-g04.jpg,mazu-yacht-g06.jpg,mazu-yacht-g07.jpg,mazu-yacht-g08.jpg"><img src="mazu-yacht-cover.jpg" alt="Mazu Yacht" loading="lazy"><span class="pg-cap">Mazu Yacht</span></div>
+      <div class="pg-item" data-images="marquis-yat-ic-duvar-kaplama-cover.jpg,marquis-yat-ic-duvar-kaplama-g01.jpg,marquis-yat-ic-duvar-kaplama-g02.jpg,marquis-yat-ic-duvar-kaplama-g03.jpg,marquis-yat-ic-duvar-kaplama-g04.jpg,marquis-yat-ic-duvar-kaplama-g05.jpg,marquis-yat-ic-duvar-kaplama-g06.jpg"><img src="marquis-yat-ic-duvar-kaplama-cover.jpg" alt="Marquis — iç duvar kaplama" loading="lazy"><span class="pg-cap">Marquis · İç Duvar Kaplama</span></div>
+      <div class="pg-item" data-images="princess-flybeach-tavan-sarkmasi-cover.jpg,princess-flybeach-tavan-sarkmasi-g01.jpg,princess-flybeach-tavan-sarkmasi-g02.jpg,princess-flybeach-tavan-sarkmasi-g03.jpg,princess-flybeach-tavan-sarkmasi-g04.jpg"><img src="princess-flybeach-tavan-sarkmasi-cover.jpg" alt="Princess — flybeach tavan" loading="lazy"><span class="pg-cap">Princess · Flybeach Tavan</span></div>
+      <div class="pg-item" data-images="princess-iskele-kabin-g03.jpg,princess-iskele-kabin-g02.jpg,princess-iskele-kabin-g04.jpg,princess-iskele-kabin-cover.jpg,princess-iskele-kabin-g01.jpg,princess-iskele-kabin-g05.jpg"><img src="princess-iskele-kabin-g03.jpg" alt="Princess — iskele kabin (tamamlanmış)" loading="lazy"><span class="pg-cap">Princess · İskele Kabin</span></div>
+      <div class="pg-item" data-images="princess-twin-kabin-cover.jpg,princess-twin-kabin-g01.jpg,princess-twin-kabin-g02.jpg"><img src="princess-twin-kabin-cover.jpg" alt="Princess — twin kabin" loading="lazy"><span class="pg-cap">Princess · Twin Kabin</span></div>
+      <div class="pg-item" data-images="ozel-yapim-bas-master-kabin-refit-cover.jpg,ozel-yapim-bas-master-kabin-refit-g03.jpg,ozel-yapim-bas-master-kabin-refit-g01.jpg,ozel-yapim-bas-master-kabin-refit-g02.jpg"><img src="ozel-yapim-bas-master-kabin-refit-cover.jpg" alt="Baş master kabin refit (tamamlanmış)" loading="lazy"><span class="pg-cap">Baş Master Kabin · Refit</span></div>
+      <div class="pg-item" data-images="ozel-yapim-sancak-kabin-refit-g01.jpg,ozel-yapim-sancak-kabin-refit-cover.jpg,ozel-yapim-sancak-kabin-refit-g03.jpg,ozel-yapim-sancak-kabin-refit-g02.jpg"><img src="ozel-yapim-sancak-kabin-refit-g01.jpg" alt="Sancak kabin refit (tamamlanmış)" loading="lazy"><span class="pg-cap">Sancak Kabin · Refit</span></div>
+      <div class="pg-item" data-images="ozel-yapim-salon-refit-g02.jpg,ozel-yapim-salon-refit-g03.jpg,ozel-yapim-salon-refit-g04.jpg,ozel-yapim-salon-refit-cover.jpg,ozel-yapim-salon-refit-g01.jpg"><img src="ozel-yapim-salon-refit-g02.jpg" alt="Salon refit (tamamlanmış)" loading="lazy"><span class="pg-cap">Salon · Refit</span></div>
+      <div class="pg-item" data-images="ozel-yapim-kavisli-koltuk-cover.jpg,ozel-yapim-kavisli-koltuk-g01.jpg,ozel-yapim-kavisli-koltuk-g02.jpg,ozel-yapim-kavisli-koltuk-g03.jpg"><img src="ozel-yapim-kavisli-koltuk-cover.jpg" alt="Özel yapım kavisli koltuk" loading="lazy"><span class="pg-cap">Özel Yapım · Kavisli Koltuk</span></div>
+    </div>
+    <p class="pg-note reveal">Bir projeye tıklayın, büyütün. Görsel seçkisi güncellenmeye devam ediyor.</p>
+  </div>
+</section>
+
+<!-- ============================ REFERANSLAR ============================== -->
+<section class="section" id="referanslar">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Referanslarımız</span>
+      <h2>Referans <em>yatlar</em></h2>
+    </div>
+    <div class="ref-grid reveal">
+      <div class="ref-cell"><span class="rn">Azimut 50</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Jeanneau 42.2</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Sunseeker Manhattan 64</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Fairline Phantom 41</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Princess 20m</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Bali 4.6</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Fairline Phantom 50</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Bavaria 42</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Chris-Craft Launch</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Marquis 500</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Sunseeker Manhattan 56</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Mazu 52</span><span class="rk">Yacht</span></div>
+      <div class="ref-cell"><span class="rn">Custom Yatlar</span><span class="rk">Özel Yapım</span></div>
+    </div>
+    <p class="ref-foot reveal">Referans listemiz güncellenmeye devam ediyor.</p>
+  </div>
+</section>
+
+<!-- ============================== İLETİŞİM =============================== -->
+<section class="section" id="iletisim">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">İletişim</span>
+      <h2>Bir sonraki projenizi <em>birlikte</em> tasarlayalım</h2>
+      <p>Refit, kaplama, koltuk imalatı veya komple iç mekân — aklınızdaki her şey için bize ulaşın.</p>
+    </div>
+    <div class="contact">
+      <div class="cinfo reveal">
+        <a href="mailto:fimekanyacht@gmail.com">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span><span class="lbl">E-posta</span><span class="val">fimekanyacht@gmail.com</span></span></a>
+        <a href="tel:+905064145062">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          <span><span class="lbl">Telefon</span><span class="val">0506 414 50 62</span></span></a>
+        <a href="tel:+905325483750">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+          <span><span class="lbl">Telefon</span><span class="val">0532 548 37 50</span></span></a>
+        <a href="https://www.instagram.com/fimekan_yacht_interior" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span><span class="lbl">Instagram</span><span class="val">@fimekan_yacht_interior</span></span></a>
+        <a href="https://www.linkedin.com/company/fimekanyachtinterior/" target="_blank" rel="noopener noreferrer">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg>
+          <span><span class="lbl">LinkedIn</span><span class="val">fimekanyachtinterior</span></span></a>
+        <div class="row">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span><span class="lbl">Adres</span><span class="val">Osmangazi / Bursa / Türkiye</span></span></div>
+      </div>
+
+      <div class="cmap reveal">
+        <iframe title="Fimekan konum haritası" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Fimekan%20Yacht%20Interior%20Osmangazi%20Bursa&z=13&output=embed"></iframe>
+        <a class="btn btn-gold cmap-btn" href="https://share.google/XKSJdh1uvpiOpqyVu" target="_blank" rel="noopener noreferrer">
+          Google Maps'te Aç
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== FOOTER ================================ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-in">
+      <a href="#home" class="brand"><img src="logo-mark.png" alt="Fimekan"><span class="wm">FİMEKAN</span></a>
+      <nav class="foot-nav">
+        <a href="#miras">Miras</a>
+        <a href="#vizyon">Vizyon &amp; Misyon</a>
+        <a href="#degerler">Değerler</a>
+        <a href="#zanaat">Zanaat</a>
+        <a href="#projeler">Projeler</a>
+        <a href="#referanslar">Referanslar</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+      <div class="foot-soc">
+        <a href="https://www.instagram.com/fimekan_yacht_interior" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.linkedin.com/company/fimekanyachtinterior/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+        <a href="mailto:fimekanyacht@gmail.com" aria-label="E-posta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <span>© 2026 Fimekan Yacht &amp; Home Interior. Tüm hakları saklıdır.</span>
+      <span>Osmangazi / Bursa / Türkiye</span>
+      <span class="seal">by Döşemecioğulları · 1890</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Fixed brass seal, always visible bottom-right -->
+<div class="corner-seal" aria-hidden="true">by <b>Döşemecioğulları</b> · 1890</div>
+
+<!-- Lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Proje görüntüleyici">
+  <button class="lb-close" id="lb-close" aria-label="Kapat">&times;</button>
+  <button class="lb-nav lb-prev" id="lb-prev" aria-label="Önceki"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <img id="lb-img" alt="">
+  <button class="lb-nav lb-next" id="lb-next" aria-label="Sonraki"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg></button>
+  <div class="lb-count" id="lb-count"></div>
+</div>
+
+
+<!-- ============================== SOR / CHAT ============================= -->
+<button class="chat-fab" id="chatFab" aria-label="Bir sorunuz mu var? Sohbeti aç" aria-expanded="false" aria-controls="chatPanel" title="Bir sorunuz mu var?">
+  <span class="fab-dot" aria-hidden="true"></span>
+  <span class="fab-tip" aria-hidden="true">Sor</span>
+  <span class="ic-boat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="M12 6l6 8h-6"/><path d="M12 6 6 14h6"/><path d="M4 17h16l-1.4 2.9a2 2 0 0 1-1.8 1.1H7.2a2 2 0 0 1-1.8-1.1L4 17Z"/></svg></span>
+  <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+</button>
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Fimekan danışma" aria-hidden="true">
+  <div class="chat-head">
+    <span class="avatar avatar-logo"><img src="chat-logo.png" alt="Fimekan logosu"></span>
+    <div>
+      <h4>Fimekan Danışma</h4>
+      <p><span class="status"></span>Sorularınızı hemen yanıtlar</p>
+    </div>
+    <button class="chat-x" id="chatX" aria-label="Kapat">&times;</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-chips" id="chatChips"></div>
+  <form class="chat-input" id="chatForm" autocomplete="off">
+    <input id="chatInput" type="text" placeholder="Sorunuzu yazın…" aria-label="Sorunuzu yazın">
+    <button type="submit" aria-label="Gönder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-3-7-7-1Z"/></svg></button>
+  </form>
+</div>
+
+<script>
+/* Tüm betik IIFE içinde: global ad alanı kirliliğini ve yerleşik
+   window.close / adları gölgeleme riskini önler. */
+(function(){
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+const burger=document.getElementById('burger'),nav=document.getElementById('nav');
+function setMenu(open){nav.classList.toggle('open',open);burger.setAttribute('aria-expanded',open?'true':'false');}
+burger.addEventListener('click',()=>setMenu(!nav.classList.contains('open')));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+/* ---- Header yüksekliğine göre çapa (anchor) hizalama ---- */
+function compactHeaderH(){
+  // Header kaydırınca küçülür; hedefe varıldığında geçerli olan "kompakt" yüksekliği ölç.
+  var was=hdr.classList.contains('scrolled');
+  hdr.classList.add('scrolled');
+  var h=hdr.offsetHeight;
+  if(!was) hdr.classList.remove('scrolled');
+  return h;
+}
+function navOffset(){ return compactHeaderH()+10; } /* +10px nefes payı */
+function setNavOffsetVar(){ document.documentElement.style.setProperty('--nav-offset', navOffset()+'px'); }
+setNavOffsetVar();
+addEventListener('resize', setNavOffsetVar);
+
+var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var TITLE_GAP = 20; /* header ile başlık arası nefes payı (px) */
+
+/* Bölümün içinde "yazının başladığı" ilk öğeyi bul: eyebrow > başlık > sec-head > kutu */
+function contentAnchor(el){
+  return el.querySelector('.eyebrow, .sec-head, h1, h2, h3') || el;
+}
+function goTo(hash){
+  if(hash==='#home' || hash==='#top'){
+    window.scrollTo({top:0, behavior: reduceMotion?'auto':'smooth'});
+    return;
+  }
+  var el=document.querySelector(hash);
+  if(!el) return;
+  /* Bölümün üst boşluğunu (padding) atla; hedefi tam yazının başladığı yere kilitle */
+  var ref = contentAnchor(el);
+  var y = ref.getBoundingClientRect().top + window.pageYOffset - navOffset() - TITLE_GAP;
+  window.scrollTo({top:Math.max(0,y), behavior: reduceMotion?'auto':'smooth'});
+}
+
+/* Sayfa bir bağlantıyla (#...) açıldıysa da başlığa hizala (tarayıcının ham sıçramasını düzelt) */
+function alignInitialHash(){
+  var h = location.hash;
+  if(h && h.length>1 && document.querySelector(h)){
+    var prev = reduceMotion; reduceMotion = true;   /* ilk açılışta anında hizala */
+    requestAnimationFrame(function(){ goTo(h); reduceMotion = prev; });
+  }
+}
+window.addEventListener('load', alignInitialHash);
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  var href=a.getAttribute('href');
+  if(!href || href.length<2) return;          // sadece "#" olanları atla
+  a.addEventListener('click', function(e){
+    if(!document.querySelector(href)) return;   // hedef yoksa dokunma
+    e.preventDefault();
+    setMenu(false);
+    goTo(href);
+    history.replaceState(null,'',href);
+  });
+});
+
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const links=[...document.querySelectorAll('.nav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const spy=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(e.isIntersecting){const id='#'+e.target.id;links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));}
+}),{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>spy.observe(s));
+
+const pgItems=[...document.querySelectorAll('#pg .pg-item')];
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),lbCount=document.getElementById('lb-count');
+let gallery=[],gAlt='',gIdx=0;
+function showG(){lbImg.src=gallery[gIdx];lbImg.alt=gAlt+' — '+(gIdx+1);lbCount.textContent=gallery.length>1?((gIdx+1)+' / '+gallery.length):'';}
+function openProject(imgs,alt){gallery=imgs;gAlt=alt||'';gIdx=0;showG();lb.classList.add('open');document.getElementById('lb-prev').style.display=document.getElementById('lb-next').style.display=gallery.length>1?'':'none';}
+function close(){lb.classList.remove('open');}
+function step(d){if(gallery.length<2)return;gIdx=(gIdx+d+gallery.length)%gallery.length;showG();}
+pgItems.forEach(it=>{it.addEventListener('click',()=>{
+  const imgs=(it.getAttribute('data-images')||'').split(',').map(s=>s.trim()).filter(Boolean);
+  const img=it.querySelector('img');
+  openProject(imgs.length?imgs:[img.getAttribute('src')],img?img.alt:'');
+});});
+document.getElementById('lb-close').addEventListener('click',close);
+document.getElementById('lb-prev').addEventListener('click',()=>step(-1));
+document.getElementById('lb-next').addEventListener('click',()=>step(1));
+lb.addEventListener('click',e=>{if(e.target===lb)close();});
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')close();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1);});
+
+
+/* ====================================================================== */
+/*  SOR / CHAT — Fimekan danışma asistanı (yerel bilgi tabanı, ~500 soru) */
+/* ====================================================================== */
+(function(){
+  var fab=document.getElementById('chatFab'), panel=document.getElementById('chatPanel'),
+      xBtn=document.getElementById('chatX'), cbody=document.getElementById('chatBody'),
+      chipsWrap=document.getElementById('chatChips'), cform=document.getElementById('chatForm'),
+      cinput=document.getElementById('chatInput');
+  if(!fab||!panel) return;
+
+  var CONTACT='<div class="m-actions">'+
+    '<a href="tel:+905064145062">Ara</a>'+
+    '<a href="https://wa.me/905064145062" target="_blank" rel="noopener noreferrer">WhatsApp</a>'+
+    '<a href="mailto:fimekanyacht@gmail.com">E-posta</a></div>';
+
+  /* Türkçe-duyarlı normalizasyon: küçült, aksan/işaret sadeleştir */
+  function norm(s){
+    s=(s||'').replace(/İ/g,'i').replace(/I/g,'ı');
+    s=s.toLowerCase();
+    s=s.replace(/ç/g,'c').replace(/ğ/g,'g').replace(/ı/g,'i').replace(/ö/g,'o')
+       .replace(/ş/g,'s').replace(/ü/g,'u').replace(/â/g,'a').replace(/î/g,'i').replace(/û/g,'u');
+    s=s.replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+    return s;
+  }
+
+  var INTENTS=[
+    {t:'greet', words:['merhaba','selam','selamlar','slm','mrb','mrhb','hey','hi','hello','alo','gunaydin','naber','nasilsin','selamun'], keys:['iyi gunler','iyi aksam','kolay gelsin'],
+     a:`Merhaba! 👋 Size nasıl yardımcı olabilirim? Hizmetlerimiz, fiyat/teklif, referanslarımız ya da iletişim hakkında sorabilirsiniz. 🙂`},
+
+    {t:'about', words:['kimsiniz','nesiniz'], keys:['siz kim','fimekan ne','fimekan kim','fimekan nedir','hakkinizda','hakkinda','sirket','firma','kurulus','tanit','ne is yap','kimlerdensiniz'],
+     a:`Fimekan Yacht & Home Interior, lüks yat iç mekânlarında uzmanlaşmış bir zanaat atölyesidir. Kökümüz 1890'a, <b>Döşemecioğulları</b> ustalık geleneğine dayanır; dört kuşaktır süren el işçiliğimizi son ~10 yıldır deniz üzerine taşıdık. Refit, duvar/tavan kaplama, modüler kaplama, koltuk imalatı ve deri işçiliği yapıyoruz.`},
+
+    {t:'history', keys:['1890','dosemecioglu','dosemeciogullari','dosemecioglulari','tarihce','ne zaman kuruldu','kac yildir','kac yil','kac senedir','kusak','nesil','gecmis','koken','miras','kac yasinda'],
+     a:`Zanaat mirasımız 1890'a, <b>Döşemecioğulları</b> adına dayanır — bugün dördüncü kuşağız. Karadaki döşeme ve marangozluk ustalığımızı son ~10 yıldır lüks yatlara uyguluyoruz. Yani köklü el işçiliği ile güncel deniz standartları bir arada.`},
+
+    {t:'services', keys:['hizmet','ne yap','neler yap','servis','sunuyorsunuz','hangi hizmet','kapsam','isleriniz','neler var'],
+     a:`Başlıca hizmetlerimiz:<br>• <b>Refit</b> — kabin & salonların komple yenilenmesi<br>• <b>Duvar & tavan kaplama</b> (marquetry dâhil)<br>• <b>Modüler / fon kaplama</b> — Türkiye'de yalnızca Fimekan uyguluyor<br>• <b>Koltuk & döşeme</b> imalatı ve yenileme<br>• <b>Deri işçiliği</b> ve milimetrik dikiş<br>Tamamı marine kalite malzeme ile, malzemeden montaja tek elden.`},
+
+    {t:'refit', keys:['refit','yenileme','tadilat','elden gecir','restorasyon','komple yenile','kabin yenile','salon yenile','tamir'],
+     a:`Refit tarafında kabin, salon ve ıslak hacimleri komple elden geçiriyoruz: eski kaplama/döşemelerin sökümü, yüzey hazırlığı, yeni ahşap ve kaplama, koltuk ve deri işleri, montaj. Amacımız tekneyi "ilk günkü" hissine kavuşturmak. Kapsamı netleştirmek için ücretsiz keşif yapıyoruz.`},
+
+    {t:'wall', keys:['duvar','tavan','kaplama','panel','yuzey kapl','ahsap kapl'],
+     a:`Duvar ve tavan kaplamada ahşap, kumaş ve özel yüzeylerle çalışıyoruz; marquetry (kakma) desenleri dâhil. Malzeme deniz şartlarına (nem, tuz, UV) dayanıklı seçilir; dikiş ve ek yerleri kusursuz bitişle uygulanır.`},
+
+    {t:'modular', keys:['moduler','modular','fon kapl','moduler kapl'],
+     a:`Modüler (fon) kaplama, panellerin sökülüp yeniden takılabildiği; bakım ve yenilemeyi kolaylaştıran özel bir uygulamadır — <b>Türkiye'de yalnızca Fimekan</b> tarafından yapılıyor. Hem estetik hem pratik bir çözüm.`},
+
+    {t:'marquetry', keys:['marquetry','markuteri','kakma','ahsap isle','intarsia','desen ahsap'],
+     a:`Marquetry (ahşap kakma), farklı ahşap ve malzemelerin desen hâlinde birleştirilmesiyle yapılan ince bir el sanatıdır. Duvar ve tavan panellerinde imza niteliğinde desenler oluşturuyoruz.`},
+
+    {t:'seat', keys:['koltuk','doseme','mobilya','sunger','minder','oturma','kanepe','sandalye','puf'],
+     a:`Koltuk ve döşeme tarafında hem sıfır imalat hem yenileme yapıyoruz: özel yapım kavisli koltuklar, minderler, oturma grupları. Yüksek mukavemetli marine iplik, hatasız el işçiliği ve milimetrik dikişle deniz şartlarında yıllarca form koruyan mobilyalar.`},
+
+    {t:'leather', keys:['deri','dikis','deri detay','deri koltuk','deri kapl'],
+     a:`Deri işçiliğinde marine kalite deriler, milimetrik dikiş ve hatasız yüzeylerle çalışıyoruz — koltuk, pano ve detay kaplamaları. Tuz, nem ve UV'ye dayanıklı malzeme tercih ediyoruz.`},
+
+    {t:'materials', keys:['malzeme','kumas','iplik','marine','dayanikli','hangi kumas','hangi malzeme','marine kumas','kumas markasi','kalite malzeme','uv','nem','tuz','su gecir','guneste'],
+     a:`Yalnızca üst segment <b>marine</b> malzeme kullanıyoruz: tuz, nem ve UV'ye dayanıklı kumaşlar, deriler ve yüksek mukavemetli iplikler. Böylece yüzeyler deniz şartlarında uzun süre ilk günkü formunu korur. Dilerseniz kartelamızdan örnek gösterebiliriz.`},
+
+    {t:'process', keys:['nasil calis','surec','asama','adim','prosedur','planlama','is akis','nasil ilerl','nereden basl'],
+     a:`Genel akışımız:<br>1) <b>Keşif</b> — teknede ölçü ve ihtiyaç analizi<br>2) <b>Tasarım & kartela</b> — malzeme/renk seçimi<br>3) <b>Onay</b> — kapsam ve planlama<br>4) <b>İmalat</b> — atölyede üretim<br>5) <b>Montaj</b> — teknede kurulum ve teslim<br>Baştan sona tek elden ilerliyoruz.`},
+
+    {t:'duration', keys:['ne kadar sur','kac gun','kac hafta','kac ay','sure alir','teslim sure','ne zaman biter','hizli mi','ne zaman hazir'],
+     a:`Süre işin kapsamına bağlı: tek bir kabin ya da koltuk birkaç gün–hafta; komple refit birkaç hafta–ay sürebilir. Net süreyi keşiften sonra veriyoruz. Bir tarihiniz varsa buna göre planlayabiliriz.`},
+
+    {t:'price', keys:['fiyat','ucret','maliyet','kaca','ne kadar','tutar','teklif','butce','kesif','odeme','taksit','para','pahali','fiyat list'],
+     a:`Her proje özel olduğu için fiyat; kapsam, malzeme ve tekneye göre belirlenir. <b>Keşif ücretsizdir</b> — ölçü ve ihtiyaçları gördükten sonra net teklif çıkarıyoruz. Teklif için bize ulaşın:`+CONTACT},
+
+    {t:'refs', keys:['hangi tekne','referans','azimut','jeanneau','princess','marquis','mazu','sunseeker','manhattan','fairline','phantom','bali','bavaria','chris craft','chris-craft','kimlerle','hangi marka','hangi yat','tekneler','markalar'],
+     a:`Aralarında <b>Azimut 50</b>, <b>Sunseeker Manhattan 64 & 56</b>, <b>Fairline Phantom 41 & 50</b>, <b>Princess 20m</b>, <b>Marquis 500</b>, <b>Mazu 52</b>, <b>Bali 4.6</b>, <b>Bavaria 42</b>, <b>Jeanneau 42.2</b> ve <b>Chris-Craft Launch</b> gibi teknelerin yanı sıra çeşitli <b>özel yapım yatların</b> bulunduğu birçok projede çalıştık. Referans listemiz sürekli güncelleniyor.`},
+
+    {t:'projects', keys:['proje','portfoy','ornek is','galeri','calismalar','ornek gost','yaptiginiz is','isleri gor'],
+     a:`Tamamladığımız işlerden bir seçkiyi sitedeki <a href="#projeler">Projeler</a> bölümünde görebilirsiniz — bir görsele tıklayınca galeri açılır. Belirli bir tekne/uygulama örneği isterseniz söyleyin.`},
+
+    {t:'kartela', keys:['kartela','numune','ornek renk','desen sec','renk sec','kumas ornek','kaplama ornek','koleksiyon'],
+     a:`Malzeme, renk ve doku seçenekleri için kartelamız var; görüşme/keşif sırasında fiziksel örnekleri paylaşıyoruz. İlgilendiğiniz tarzı yazarsanız (ör. açık ahşap, deri, kumaş fon) uygun seçenekleri önerelim.`},
+
+    {t:'contact', keys:['iletisim','ulas','nasil ulas','telefon','numara','mail','e posta','eposta','whatsapp','ara','iletisime','sizi nasil bul','baglant'],
+     a:`Bize şöyle ulaşabilirsiniz:<br>📞 0506 414 50 62 &nbsp;•&nbsp; 0532 548 37 50<br>✉ fimekanyacht@gmail.com<br>📍 Osmangazi / Bursa<br>Instagram: @fimekan_yacht_interior`+CONTACT},
+
+    {t:'location', keys:['nerede','neredesiniz','nerdesiniz','konum','adres','lokasyon','bursa','harita','yol tarif','atolye nerede','hangi sehir'],
+     a:`Atölyemiz <b>Osmangazi / Bursa / Türkiye</b>'de. Konum ve yol tarifi için sitedeki <a href="#iletisim">İletişim</a> bölümündeki haritayı kullanabilir ya da <a href="https://share.google/XKSJdh1uvpiOpqyVu" target="_blank" rel="noopener noreferrer">Google Maps'te açabilirsiniz</a>. Teknenizin bulunduğu marinaya da geliyoruz.`},
+
+    {t:'appt', keys:['randevu','gorusme','ziyaret','kesfe gel','gelin','ugra','bulusma','gelip bak','yerinde bak'],
+     a:`Tabii — keşif ve görüşme için randevu oluşturabiliriz. Uygun gününüzü ve teknenizin/marinanızın konumunu iletin, planlayalım.`+CONTACT},
+
+    {t:'warranty', keys:['garanti','kac yil dayan','omur','saglamlik','bakim','ne kadar dayan','dayaniklilik'],
+     a:`Marine kalite malzeme ve doğru işçilikle uygulanan yüzeyler deniz şartlarında uzun yıllar formunu korur. İş kapsamına göre garanti ve bakım koşullarını görüşmede netleştiriyoruz.`},
+
+    {t:'home', words:['ev','evde','konut','villa','ofis','home'], keys:['ev ic','home interior','ev dekor','karada','ev tasarim'],
+     a:`Evet — adımızdaki "Home" da buradan geliyor: aynı zanaat kalitesini ev, villa ve konut iç mekânlarında da uyguluyoruz (döşeme, kaplama, özel mobilya). Projenizi anlatın, birlikte planlayalım.`},
+
+    {t:'video', words:['video','izle','film'], keys:['tanitim video','goruntu izle'],
+     a:`Kaplamanın dokusunu en iyi hareketli görüntü anlatır — sitedeki <a href="#zanaat">Zanaat</a> bölümünde kısa bir uygulama videosu var. Daha fazla örnek için Instagram hesabımıza da göz atabilirsiniz.`},
+
+    {t:'social', words:['instagram','insta','linkedin','ig'], keys:['sosyal medya','takip et','hesabiniz'],
+     a:`Bizi sosyal medyada takip edebilirsiniz:<br>Instagram: <a href="https://www.instagram.com/fimekan_yacht_interior" target="_blank" rel="noopener noreferrer">@fimekan_yacht_interior</a><br>LinkedIn: <a href="https://www.linkedin.com/company/fimekanyachtinterior/" target="_blank" rel="noopener noreferrer">fimekanyachtinterior</a>`},
+
+    {t:'hours', keys:['calisma saat','saatler','acik misiniz','kapali','mesai','ne zaman acik','hafta sonu','pazar acik'],
+     a:`Çalışma saatlerimiz genelde hafta içi mesai saatleridir; kesin randevu için aramanız ya da yazmanız en pratiği. Size uygun zamanı ayarlayalım.`+CONTACT},
+
+    {t:'travel', keys:['yurt disi','sehir dis','baska sehir','il dis','geliyor mu','nakliye','tasima','istanbul','antalya','mugla','bodrum','marmaris','gocek','izmir'],
+     a:`Sadece Bursa değil; teknenizin bulunduğu marina neredeyse (İstanbul, Muğla, Bodrum, Göcek, Antalya vb. ve yurt dışı dâhil) oraya geliyoruz. Nakliye ve montaj lojistiğini biz yönetiyoruz. Konumunuzu iletin, planlayalım.`},
+
+    {t:'why', keys:['neden siz','neden fimekan','fark','avantaj','neden terc','sizi ozel','neden sizi','rakip'],
+     a:`Neden Fimekan?<br>• 1890'a uzanan dört kuşaklık zanaat<br>• Yalnızca marine kalite malzeme<br>• Türkiye'de tek olan modüler kaplama uygulaması<br>• Milimetrik dikiş, hatasız el işçiliği<br>• Malzemeden montaja tek elden özen`},
+
+    {t:'custom', keys:['ozel tasarim','ozel yapim','ozel uretim','tasarliyor','cizim','konsept','size ozel','olcuye ozel'],
+     a:`Her iş size özeldir — teknenizin mimarisine ve zevkinize göre tasarlıyor, ölçüye özel imal ediyoruz. Aklınızdaki fikri, varsa görselleri paylaşın; konsept ve kartela ile netleştirelim.`},
+
+    {t:'size', keys:['kac metre','boyut','buyuk tekne','kucuk tekne','mega yat','minimum','kac metrelik','sinir var'],
+     a:`Motor ya da yelkenli, küçük teknelerden mega yatlara kadar çalışıyoruz — belirli bir boyut sınırımız yok. Kapsamı teknenizi gördükten sonra netleştiriyoruz.`},
+
+    {t:'team', keys:['ekip','kac kisi','kapasite','personel','usta','calisan','kadro'],
+     a:`Deneyimli usta kadromuzla, imalattan montaja işi tek elden yürütüyoruz. Proje büyüklüğüne göre ekibi ve takvimi buna uygun planlıyoruz.`},
+
+    {t:'payment', keys:['sozlesme','sigorta','fatura','garanti belge','kapora','avans','odeme plan'],
+     a:`Kapsam onayının ardından iş; sözleşme, planlama ve fatura ile şeffaf şekilde yürütülür. Ödeme ve takvim detaylarını teklif aşamasında birlikte belirliyoruz.`+CONTACT},
+
+    {t:'english', words:['english','ingilizce'], keys:['do you speak','speak english','in english'],
+     a:`Elbette, İngilizce de yazışabiliriz — please feel free to ask in English, or reach us at fimekanyacht@gmail.com. 🙂`},
+
+    {t:'thanks', words:['tesekkur','tesekkurler','sagol','sagolun','eyvallah','thanks','tsk'], keys:['cok sagol','tesekkur eder'],
+     a:`Rica ederim! Başka bir sorunuz olursa buradayım. 🙂`},
+
+    {t:'bye', words:['gorusuruz','bay','baybay'], keys:['hosca kal','kendine iyi bak','iyi gunler dilerim','sonra yazar'],
+     a:`Görüşmek üzere! Aklınıza takılan olursa tekrar yazabilir ya da bize ulaşabilirsiniz. İyi günler dileriz. ⚓`}
+  ];
+
+  INTENTS.forEach(function(it){
+    it.w=(it.words||[]).map(norm).filter(Boolean);
+    it.k=(it.keys||[]).map(norm).filter(Boolean);
+  });
+
+  var FALLBACK=`Bunu tam çözemedim, ama yardımcı olmak isterim 🤔<br>Şunları sorabilirsiniz: <i>hizmetler, refit, duvar/tavan kaplama, modüler kaplama, koltuk, deri, malzeme, fiyat/teklif, referanslar, süre, konum, iletişim.</i><br>Dilerseniz doğrudan bize ulaşın:`+CONTACT;
+
+  function match(text){
+    var t=norm(text); if(!t) return null;
+    var toks=t.split(' '), best=null, bestScore=0;
+    INTENTS.forEach(function(it){
+      var sc=0;
+      it.w.forEach(function(w){ if(toks.indexOf(w)!==-1) sc+=w.length*2+3; });
+      it.k.forEach(function(k){ if(t.indexOf(k)!==-1) sc+=k.length+1; });
+      if(sc>bestScore){ bestScore=sc; best=it; }
+    });
+    return bestScore>0 ? best : null;
+  }
+
+  /* ---------- UI ---------- */
+  function addMsg(content, who){
+    var d=document.createElement('div');
+    d.className='msg '+(who||'bot');
+    if(who==='user') d.textContent=content; else d.innerHTML=content;
+    cbody.appendChild(d); cbody.scrollTop=cbody.scrollHeight;
+    return d;
+  }
+  function typing(){
+    var d=document.createElement('div'); d.className='chat-typing';
+    d.innerHTML='<span></span><span></span><span></span>';
+    cbody.appendChild(d); cbody.scrollTop=cbody.scrollHeight; return d;
+  }
+  function respond(text){
+    addMsg(text,'user');
+    var tp=typing();
+    setTimeout(function(){
+      tp.remove();
+      var it=match(text);
+      addMsg(it?it.a:FALLBACK,'bot');
+    }, 460+Math.random()*360);
+  }
+
+  var CHIPS=['Hizmetleriniz neler?','Nasıl teklif alırım?','Hangi teknelerle çalıştınız?','Neredesiniz?','Bir iş ne kadar sürer?','İletişim'];
+  function renderChips(){
+    chipsWrap.innerHTML='';
+    CHIPS.forEach(function(c){
+      var b=document.createElement('button'); b.type='button'; b.textContent=c;
+      b.addEventListener('click',function(){ respond(c); });
+      chipsWrap.appendChild(b);
+    });
+  }
+
+  var started=false;
+  function startChat(){
+    if(started) return; started=true;
+    addMsg(`Merhaba! 👋 Ben <b>Fimekan</b> danışma asistanıyım. Yat iç mekânı, refit, kaplama, koltuk imalatı, malzeme, fiyat/teklif ve iletişim hakkında sorularınızı yanıtlarım. Aşağıdan seçebilir ya da yazabilirsiniz.`,'bot');
+    renderChips();
+  }
+  function openChat(){
+    panel.classList.add('open'); fab.classList.add('open');
+    fab.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false');
+    fab.setAttribute('aria-label','Sohbeti kapat');
+    startChat(); setTimeout(function(){ cinput.focus(); },260);
+  }
+  function closeChat(){
+    panel.classList.remove('open'); fab.classList.remove('open');
+    fab.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true');
+    fab.setAttribute('aria-label','Bir sorunuz mu var? Sohbeti aç');
+  }
+  function toggleChat(){ panel.classList.contains('open') ? closeChat() : openChat(); }
+
+  fab.addEventListener('click', toggleChat);
+  xBtn.addEventListener('click', closeChat);
+  cform.addEventListener('submit', function(e){
+    e.preventDefault();
+    var v=cinput.value.trim(); if(!v) return;
+    cinput.value=''; respond(v);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && panel.classList.contains('open')) closeChat();
+  });
+})();
+
+})(); /* dış IIFE kapanışı */
+</script>
+</body>
+</html>

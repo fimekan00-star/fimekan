@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Fimekan Yacht & Home Interior — sitemap
+  ÖNEMLI: Aşağıdaki <loc> içindeki alan adını KENDI GERÇEK adresinizle değiştirin.
+  Site tek sayfa (single-page) olduğu için sitemap yalnızca ana sayfayı içerir;
+  #projeler, #zanaat gibi bölüm bağlantıları (anchor) sitemap'e YAZILMAZ.
+  <lastmod> tarihini, siteyi her güncellediğinizde yenileyin (YYYY-AA-GG biçiminde).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.fimekan.com/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
